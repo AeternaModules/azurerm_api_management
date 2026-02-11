@@ -128,18 +128,18 @@ EOT
     publisher_name                = string
     resource_group_name           = string
     sku_name                      = string
-    client_certificate_enabled    = optional(bool, false)
-    gateway_disabled              = optional(bool, false)
+    client_certificate_enabled    = optional(bool) # Default: false
+    gateway_disabled              = optional(bool) # Default: false
     min_api_version               = optional(string)
     notification_sender_email     = optional(string)
     public_ip_address_id          = optional(string)
-    public_network_access_enabled = optional(bool, true)
+    public_network_access_enabled = optional(bool) # Default: true
     tags                          = optional(map(string))
-    virtual_network_type          = optional(string, "None")
+    virtual_network_type          = optional(string) # Default: "None"
     zones                         = optional(set(string))
     additional_location = optional(object({
       capacity             = optional(number)
-      gateway_disabled     = optional(bool, false)
+      gateway_disabled     = optional(bool) # Default: false
       location             = string
       public_ip_address_id = optional(string)
       virtual_network_configuration = optional(object({
@@ -153,9 +153,9 @@ EOT
       store_name           = string
     })))
     delegation = optional(object({
-      subscriptions_enabled     = optional(bool, false)
+      subscriptions_enabled     = optional(bool) # Default: false
       url                       = optional(string)
-      user_registration_enabled = optional(bool, false)
+      user_registration_enabled = optional(bool) # Default: false
       validation_key            = optional(string)
     }))
     hostname_configuration = optional(object({
@@ -165,7 +165,7 @@ EOT
         host_name                       = string
         key_vault_certificate_id        = optional(string)
         key_vault_id                    = optional(string)
-        negotiate_client_certificate    = optional(bool, false)
+        negotiate_client_certificate    = optional(bool) # Default: false
         ssl_keyvault_identity_client_id = optional(string)
       }))
       management = optional(object({
@@ -174,7 +174,7 @@ EOT
         host_name                       = string
         key_vault_certificate_id        = optional(string)
         key_vault_id                    = optional(string)
-        negotiate_client_certificate    = optional(bool, false)
+        negotiate_client_certificate    = optional(bool) # Default: false
         ssl_keyvault_identity_client_id = optional(string)
       }))
       portal = optional(object({
@@ -183,7 +183,7 @@ EOT
         host_name                       = string
         key_vault_certificate_id        = optional(string)
         key_vault_id                    = optional(string)
-        negotiate_client_certificate    = optional(bool, false)
+        negotiate_client_certificate    = optional(bool) # Default: false
         ssl_keyvault_identity_client_id = optional(string)
       }))
       proxy = optional(object({
@@ -193,7 +193,7 @@ EOT
         host_name                       = string
         key_vault_certificate_id        = optional(string)
         key_vault_id                    = optional(string)
-        negotiate_client_certificate    = optional(bool, false)
+        negotiate_client_certificate    = optional(bool) # Default: false
         ssl_keyvault_identity_client_id = optional(string)
       }))
       scm = optional(object({
@@ -202,7 +202,7 @@ EOT
         host_name                       = string
         key_vault_certificate_id        = optional(string)
         key_vault_id                    = optional(string)
-        negotiate_client_certificate    = optional(bool, false)
+        negotiate_client_certificate    = optional(bool) # Default: false
         ssl_keyvault_identity_client_id = optional(string)
       }))
     }))
@@ -227,16 +227,16 @@ EOT
       frontend_ssl30_enabled                              = optional(bool)
       frontend_tls10_enabled                              = optional(bool)
       frontend_tls11_enabled                              = optional(bool)
-      tls_ecdhe_ecdsa_with_aes128_cbc_sha_ciphers_enabled = optional(bool, false)
-      tls_ecdhe_ecdsa_with_aes256_cbc_sha_ciphers_enabled = optional(bool, false)
-      tls_ecdhe_rsa_with_aes128_cbc_sha_ciphers_enabled   = optional(bool, false)
-      tls_ecdhe_rsa_with_aes256_cbc_sha_ciphers_enabled   = optional(bool, false)
-      tls_rsa_with_aes128_cbc_sha256_ciphers_enabled      = optional(bool, false)
-      tls_rsa_with_aes128_cbc_sha_ciphers_enabled         = optional(bool, false)
-      tls_rsa_with_aes128_gcm_sha256_ciphers_enabled      = optional(bool, false)
-      tls_rsa_with_aes256_cbc_sha256_ciphers_enabled      = optional(bool, false)
-      tls_rsa_with_aes256_cbc_sha_ciphers_enabled         = optional(bool, false)
-      tls_rsa_with_aes256_gcm_sha384_ciphers_enabled      = optional(bool, false)
+      tls_ecdhe_ecdsa_with_aes128_cbc_sha_ciphers_enabled = optional(bool) # Default: false
+      tls_ecdhe_ecdsa_with_aes256_cbc_sha_ciphers_enabled = optional(bool) # Default: false
+      tls_ecdhe_rsa_with_aes128_cbc_sha_ciphers_enabled   = optional(bool) # Default: false
+      tls_ecdhe_rsa_with_aes256_cbc_sha_ciphers_enabled   = optional(bool) # Default: false
+      tls_rsa_with_aes128_cbc_sha256_ciphers_enabled      = optional(bool) # Default: false
+      tls_rsa_with_aes128_cbc_sha_ciphers_enabled         = optional(bool) # Default: false
+      tls_rsa_with_aes128_gcm_sha256_ciphers_enabled      = optional(bool) # Default: false
+      tls_rsa_with_aes256_cbc_sha256_ciphers_enabled      = optional(bool) # Default: false
+      tls_rsa_with_aes256_cbc_sha_ciphers_enabled         = optional(bool) # Default: false
+      tls_rsa_with_aes256_gcm_sha384_ciphers_enabled      = optional(bool) # Default: false
       triple_des_ciphers_enabled                          = optional(bool)
     }))
     sign_in = optional(object({
