@@ -137,7 +137,7 @@ EOT
     tags                          = optional(map(string))
     virtual_network_type          = optional(string) # Default: "None"
     zones                         = optional(set(string))
-    additional_location = optional(object({
+    additional_location = optional(list(object({
       capacity             = optional(number)
       gateway_disabled     = optional(bool) # Default: false
       location             = string
@@ -146,7 +146,7 @@ EOT
         subnet_id = string
       }))
       zones = optional(set(string))
-    }))
+    })))
     certificate = optional(list(object({
       certificate_password = optional(string)
       encoded_certificate  = string
@@ -159,7 +159,7 @@ EOT
       validation_key            = optional(string)
     }))
     hostname_configuration = optional(object({
-      developer_portal = optional(object({
+      developer_portal = optional(list(object({
         certificate                     = optional(string)
         certificate_password            = optional(string)
         host_name                       = string
@@ -167,8 +167,8 @@ EOT
         key_vault_id                    = optional(string)
         negotiate_client_certificate    = optional(bool) # Default: false
         ssl_keyvault_identity_client_id = optional(string)
-      }))
-      management = optional(object({
+      })))
+      management = optional(list(object({
         certificate                     = optional(string)
         certificate_password            = optional(string)
         host_name                       = string
@@ -176,8 +176,8 @@ EOT
         key_vault_id                    = optional(string)
         negotiate_client_certificate    = optional(bool) # Default: false
         ssl_keyvault_identity_client_id = optional(string)
-      }))
-      portal = optional(object({
+      })))
+      portal = optional(list(object({
         certificate                     = optional(string)
         certificate_password            = optional(string)
         host_name                       = string
@@ -185,8 +185,8 @@ EOT
         key_vault_id                    = optional(string)
         negotiate_client_certificate    = optional(bool) # Default: false
         ssl_keyvault_identity_client_id = optional(string)
-      }))
-      proxy = optional(object({
+      })))
+      proxy = optional(list(object({
         certificate                     = optional(string)
         certificate_password            = optional(string)
         default_ssl_binding             = optional(bool)
@@ -195,8 +195,8 @@ EOT
         key_vault_id                    = optional(string)
         negotiate_client_certificate    = optional(bool) # Default: false
         ssl_keyvault_identity_client_id = optional(string)
-      }))
-      scm = optional(object({
+      })))
+      scm = optional(list(object({
         certificate                     = optional(string)
         certificate_password            = optional(string)
         host_name                       = string
@@ -204,7 +204,7 @@ EOT
         key_vault_id                    = optional(string)
         negotiate_client_certificate    = optional(bool) # Default: false
         ssl_keyvault_identity_client_id = optional(string)
-      }))
+      })))
     }))
     identity = optional(object({
       identity_ids = optional(set(string))

@@ -18,7 +18,7 @@ resource "azurerm_api_management" "api_managements" {
   zones                         = each.value.zones
 
   dynamic "additional_location" {
-    for_each = each.value.additional_location != null ? [each.value.additional_location] : []
+    for_each = each.value.additional_location != null ? each.value.additional_location : []
     content {
       capacity             = additional_location.value.capacity
       gateway_disabled     = additional_location.value.gateway_disabled
@@ -57,7 +57,7 @@ resource "azurerm_api_management" "api_managements" {
     for_each = each.value.hostname_configuration != null ? [each.value.hostname_configuration] : []
     content {
       dynamic "developer_portal" {
-        for_each = hostname_configuration.value.developer_portal != null ? [hostname_configuration.value.developer_portal] : []
+        for_each = hostname_configuration.value.developer_portal != null ? hostname_configuration.value.developer_portal : []
         content {
           certificate                     = developer_portal.value.certificate
           certificate_password            = developer_portal.value.certificate_password
@@ -69,7 +69,7 @@ resource "azurerm_api_management" "api_managements" {
         }
       }
       dynamic "management" {
-        for_each = hostname_configuration.value.management != null ? [hostname_configuration.value.management] : []
+        for_each = hostname_configuration.value.management != null ? hostname_configuration.value.management : []
         content {
           certificate                     = management.value.certificate
           certificate_password            = management.value.certificate_password
@@ -81,7 +81,7 @@ resource "azurerm_api_management" "api_managements" {
         }
       }
       dynamic "portal" {
-        for_each = hostname_configuration.value.portal != null ? [hostname_configuration.value.portal] : []
+        for_each = hostname_configuration.value.portal != null ? hostname_configuration.value.portal : []
         content {
           certificate                     = portal.value.certificate
           certificate_password            = portal.value.certificate_password
@@ -93,7 +93,7 @@ resource "azurerm_api_management" "api_managements" {
         }
       }
       dynamic "proxy" {
-        for_each = hostname_configuration.value.proxy != null ? [hostname_configuration.value.proxy] : []
+        for_each = hostname_configuration.value.proxy != null ? hostname_configuration.value.proxy : []
         content {
           certificate                     = proxy.value.certificate
           certificate_password            = proxy.value.certificate_password
@@ -106,7 +106,7 @@ resource "azurerm_api_management" "api_managements" {
         }
       }
       dynamic "scm" {
-        for_each = hostname_configuration.value.scm != null ? [hostname_configuration.value.scm] : []
+        for_each = hostname_configuration.value.scm != null ? hostname_configuration.value.scm : []
         content {
           certificate                     = scm.value.certificate
           certificate_password            = scm.value.certificate_password
