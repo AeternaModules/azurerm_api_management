@@ -41,7 +41,6 @@ Optional:
             - certificate_password (optional)
             - host_name (required)
             - key_vault_certificate_id (optional)
-            - key_vault_id (optional)
             - negotiate_client_certificate (optional)
             - ssl_keyvault_identity_client_id (optional)
         - management (optional, block):
@@ -49,7 +48,6 @@ Optional:
             - certificate_password (optional)
             - host_name (required)
             - key_vault_certificate_id (optional)
-            - key_vault_id (optional)
             - negotiate_client_certificate (optional)
             - ssl_keyvault_identity_client_id (optional)
         - portal (optional, block):
@@ -57,7 +55,6 @@ Optional:
             - certificate_password (optional)
             - host_name (required)
             - key_vault_certificate_id (optional)
-            - key_vault_id (optional)
             - negotiate_client_certificate (optional)
             - ssl_keyvault_identity_client_id (optional)
         - proxy (optional, block):
@@ -66,7 +63,6 @@ Optional:
             - default_ssl_binding (optional)
             - host_name (required)
             - key_vault_certificate_id (optional)
-            - key_vault_id (optional)
             - negotiate_client_certificate (optional)
             - ssl_keyvault_identity_client_id (optional)
         - scm (optional, block):
@@ -74,25 +70,17 @@ Optional:
             - certificate_password (optional)
             - host_name (required)
             - key_vault_certificate_id (optional)
-            - key_vault_id (optional)
             - negotiate_client_certificate (optional)
             - ssl_keyvault_identity_client_id (optional)
     - identity (block):
         - identity_ids (optional)
         - type (required)
     - protocols (block):
-        - enable_http2 (optional)
         - http2_enabled (optional)
     - security (block):
         - backend_ssl30_enabled (optional)
         - backend_tls10_enabled (optional)
         - backend_tls11_enabled (optional)
-        - enable_backend_ssl30 (optional)
-        - enable_backend_tls10 (optional)
-        - enable_backend_tls11 (optional)
-        - enable_frontend_ssl30 (optional)
-        - enable_frontend_tls10 (optional)
-        - enable_frontend_tls11 (optional)
         - frontend_ssl30_enabled (optional)
         - frontend_tls10_enabled (optional)
         - frontend_tls11_enabled (optional)
@@ -164,7 +152,6 @@ EOT
         certificate_password            = optional(string)
         host_name                       = string
         key_vault_certificate_id        = optional(string)
-        key_vault_id                    = optional(string)
         negotiate_client_certificate    = optional(bool)
         ssl_keyvault_identity_client_id = optional(string)
       })))
@@ -173,7 +160,6 @@ EOT
         certificate_password            = optional(string)
         host_name                       = string
         key_vault_certificate_id        = optional(string)
-        key_vault_id                    = optional(string)
         negotiate_client_certificate    = optional(bool)
         ssl_keyvault_identity_client_id = optional(string)
       })))
@@ -182,7 +168,6 @@ EOT
         certificate_password            = optional(string)
         host_name                       = string
         key_vault_certificate_id        = optional(string)
-        key_vault_id                    = optional(string)
         negotiate_client_certificate    = optional(bool)
         ssl_keyvault_identity_client_id = optional(string)
       })))
@@ -192,7 +177,6 @@ EOT
         default_ssl_binding             = optional(bool)
         host_name                       = string
         key_vault_certificate_id        = optional(string)
-        key_vault_id                    = optional(string)
         negotiate_client_certificate    = optional(bool)
         ssl_keyvault_identity_client_id = optional(string)
       })))
@@ -201,7 +185,6 @@ EOT
         certificate_password            = optional(string)
         host_name                       = string
         key_vault_certificate_id        = optional(string)
-        key_vault_id                    = optional(string)
         negotiate_client_certificate    = optional(bool)
         ssl_keyvault_identity_client_id = optional(string)
       })))
@@ -211,19 +194,12 @@ EOT
       type         = string
     }))
     protocols = optional(object({
-      enable_http2  = optional(bool)
       http2_enabled = optional(bool)
     }))
     security = optional(object({
       backend_ssl30_enabled                               = optional(bool)
       backend_tls10_enabled                               = optional(bool)
       backend_tls11_enabled                               = optional(bool)
-      enable_backend_ssl30                                = optional(bool)
-      enable_backend_tls10                                = optional(bool)
-      enable_backend_tls11                                = optional(bool)
-      enable_frontend_ssl30                               = optional(bool)
-      enable_frontend_tls10                               = optional(bool)
-      enable_frontend_tls11                               = optional(bool)
       frontend_ssl30_enabled                              = optional(bool)
       frontend_tls10_enabled                              = optional(bool)
       frontend_tls11_enabled                              = optional(bool)
