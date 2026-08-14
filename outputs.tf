@@ -17,7 +17,7 @@ output "api_managements_client_certificate_enabled" {
 }
 output "api_managements_delegation" {
   description = "Map of delegation values across all api_managements, keyed the same as var.api_managements"
-  value       = { for k, v in azurerm_api_management.api_managements : k => v.delegation if v.delegation != null && length(v.delegation) > 0 }
+  value       = { for k, v in azurerm_api_management.api_managements : k => one(v.delegation) if v.delegation != null && length(v.delegation) > 0 }
   sensitive   = true
 }
 output "api_managements_developer_portal_url" {
@@ -38,12 +38,12 @@ output "api_managements_gateway_url" {
 }
 output "api_managements_hostname_configuration" {
   description = "Map of hostname_configuration values across all api_managements, keyed the same as var.api_managements"
-  value       = { for k, v in azurerm_api_management.api_managements : k => v.hostname_configuration if v.hostname_configuration != null && length(v.hostname_configuration) > 0 }
+  value       = { for k, v in azurerm_api_management.api_managements : k => one(v.hostname_configuration) if v.hostname_configuration != null && length(v.hostname_configuration) > 0 }
   sensitive   = true
 }
 output "api_managements_identity" {
   description = "Map of identity values across all api_managements, keyed the same as var.api_managements"
-  value       = { for k, v in azurerm_api_management.api_managements : k => v.identity if v.identity != null && length(v.identity) > 0 }
+  value       = { for k, v in azurerm_api_management.api_managements : k => one(v.identity) if v.identity != null && length(v.identity) > 0 }
 }
 output "api_managements_location" {
   description = "Map of location values across all api_managements, keyed the same as var.api_managements"
@@ -75,7 +75,7 @@ output "api_managements_private_ip_addresses" {
 }
 output "api_managements_protocols" {
   description = "Map of protocols values across all api_managements, keyed the same as var.api_managements"
-  value       = { for k, v in azurerm_api_management.api_managements : k => v.protocols if v.protocols != null && length(v.protocols) > 0 }
+  value       = { for k, v in azurerm_api_management.api_managements : k => one(v.protocols) if v.protocols != null && length(v.protocols) > 0 }
 }
 output "api_managements_public_ip_address_id" {
   description = "Map of public_ip_address_id values across all api_managements, keyed the same as var.api_managements"
@@ -107,15 +107,15 @@ output "api_managements_scm_url" {
 }
 output "api_managements_security" {
   description = "Map of security values across all api_managements, keyed the same as var.api_managements"
-  value       = { for k, v in azurerm_api_management.api_managements : k => v.security if v.security != null && length(v.security) > 0 }
+  value       = { for k, v in azurerm_api_management.api_managements : k => one(v.security) if v.security != null && length(v.security) > 0 }
 }
 output "api_managements_sign_in" {
   description = "Map of sign_in values across all api_managements, keyed the same as var.api_managements"
-  value       = { for k, v in azurerm_api_management.api_managements : k => v.sign_in if v.sign_in != null && length(v.sign_in) > 0 }
+  value       = { for k, v in azurerm_api_management.api_managements : k => one(v.sign_in) if v.sign_in != null && length(v.sign_in) > 0 }
 }
 output "api_managements_sign_up" {
   description = "Map of sign_up values across all api_managements, keyed the same as var.api_managements"
-  value       = { for k, v in azurerm_api_management.api_managements : k => v.sign_up if v.sign_up != null && length(v.sign_up) > 0 }
+  value       = { for k, v in azurerm_api_management.api_managements : k => one(v.sign_up) if v.sign_up != null && length(v.sign_up) > 0 }
 }
 output "api_managements_sku_name" {
   description = "Map of sku_name values across all api_managements, keyed the same as var.api_managements"
@@ -127,12 +127,12 @@ output "api_managements_tags" {
 }
 output "api_managements_tenant_access" {
   description = "Map of tenant_access values across all api_managements, keyed the same as var.api_managements"
-  value       = { for k, v in azurerm_api_management.api_managements : k => v.tenant_access if v.tenant_access != null && length(v.tenant_access) > 0 }
+  value       = { for k, v in azurerm_api_management.api_managements : k => one(v.tenant_access) if v.tenant_access != null && length(v.tenant_access) > 0 }
   sensitive   = true
 }
 output "api_managements_virtual_network_configuration" {
   description = "Map of virtual_network_configuration values across all api_managements, keyed the same as var.api_managements"
-  value       = { for k, v in azurerm_api_management.api_managements : k => v.virtual_network_configuration if v.virtual_network_configuration != null && length(v.virtual_network_configuration) > 0 }
+  value       = { for k, v in azurerm_api_management.api_managements : k => one(v.virtual_network_configuration) if v.virtual_network_configuration != null && length(v.virtual_network_configuration) > 0 }
 }
 output "api_managements_virtual_network_type" {
   description = "Map of virtual_network_type values across all api_managements, keyed the same as var.api_managements"
